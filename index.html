@@ -3,25 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Daily Journal</title>
+  <title>Fitness Tracker</title>
   <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <div class="toggle-container">
     <label>
       Dark Mode
-      <input type="checkbox" id="themeToggle">
+      <input type="checkbox" id="themeToggle" />
     </label>
   </div>
 
-  <h1>My Daily Journal</h1>
+  <h1>Daily Step Tracker</h1>
 
-  <textarea id="entry" rows="10" cols="50" placeholder="Write your thoughts here..."></textarea><br/>
-  <button onclick="saveEntry()">Save</button>
-  <button onclick="clearEntries()">Clear All</button>
+  <form id="stepForm">
+    <label for="date">Date:</label>
+    <input type="date" id="date" required>
+    <label for="steps">Steps:</label>
+    <input type="number" id="steps" placeholder="Enter step count" required>
+    <button type="submit">Add Entry</button>
+  </form>
 
-  <h2>Previous Entries</h2>
+  <h2>Step History</h2>
   <ul id="entriesList"></ul>
+
+  <h2>Performance Chart</h2>
+  <canvas id="stepsChart" height="200"></canvas>
 
   <script src="script.js"></script>
 </body>
